@@ -9,10 +9,11 @@ public class HttpUtils {
 
     public static void get() {
         try {
-            URL url = new URL(String.format("%s")"http://apis.juhe.cn/mobile/get");
+            URL url = new URL("http://apis.juhe.cn/mobile/get");
             try {
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-
+                httpURLConnection.setRequestMethod("GET");
+                httpURLConnection.setConnectTimeout(30000);
             } catch (IOException e) {
                 e.printStackTrace();
             }
